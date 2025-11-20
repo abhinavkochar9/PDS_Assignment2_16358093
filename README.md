@@ -1,84 +1,62 @@
-# Data Science & Analytics: Assignment 2 - Used Car Price Prediction and Diabetes Dataset Analysis
+# 📚 Assignment 2: Data Analysis and Statistical Sampling
 
-## 🎯 Assignment Goal
+This repository contains the solution for Assignment 2, which involves two distinct data analysis tasks: data wrangling and feature engineering on a used car dataset (Q1), and statistical analysis, sampling, and bootstrapping on a diabetes dataset (Q2).
 
-This repository contains the solution notebooks for **Assignment 2**, which focuses on practical data wrangling, feature engineering, exploratory data analysis (EDA), and statistical sampling/bootstrapping using two distinct datasets. The primary tools used are **Python** (with libraries like Pandas, NumPy, Matplotlib, and Seaborn) or **R** (with libraries like Tidyverse).
+---
 
-The assignment is divided into two main sections:
+## 💻 Q1: Used Car Price Analysis
 
-1.  **Q1: Used Car Price Analysis and Data Preparation** (Focus on data cleaning and feature engineering).
-2.  **Q2: Diabetes Dataset Statistical Analysis** (Focus on sampling, comparison with population statistics, and bootstrapping).
+**Data Link:** `https://app.box.com/s/jm6pw202asu4xd3uypwtry2rqk691y1i`
 
-## 🗃️ Repository Structure
+The dataset contains various details and attributes associated with used cars. The **target variable** is the price of the used cars, measured in lakhs.
 
-The assignment is organized into distinct folders for clarity and navigation.
+### Features
 
-| Folder | Description |
-| :--- | :--- |
-| `Q1_Used_Cars_Analysis/` | Contains the notebook for Question 1, addressing data cleaning, feature engineering, and data manipulation operations on the used cars dataset. |
-| `Q2_Diabetes_Stats/` | Contains the notebook for Question 2, addressing statistical sampling, comparison, and bootstrapping techniques on the diabetes dataset. |
-| `data/` | (Optional, but recommended) This is where the raw data files (`used_cars_data.csv` and `diabetes.csv`) are stored for reproducible access within the notebooks. |
+* Make and model of the car
+* Location or city of sale
+* Year of manufacture
+* Mileage
+* Odometer (kilometers driven)
+* Fuel type (petrol or diesel)
+* Transmission type (manual or automatic)
+* Number of owners
+* Engine displacement
+* Engine horsepower
+* Number of seats
+* Price when the car was new
 
-## 🚀 Q1: Used Car Price Analysis and Data Preparation
+### Tasks
 
-The notebook in `Q1_Used_Cars_Analysis/` performs the required preparation steps on the used cars dataset, where the target variable is the car price in lakhs.
+a) **Missing Values:** Look for the missing values in all columns and either impute them (replace with mean, median, or mode) or drop them. **Justify your action** for this task. (4 points)
+b) **Unit Removal:** Remove the units from some of the attributes and only keep the numerical values (for example remove `kmpl` from “Mileage”, `CC` from “Engine”, `bhp` from “Power”, and `lakh` from “New\_price”). (4 points)
+c) **Categorical Encoding:** Change the categorical variables (“Fuel\_Type” and “Transmission”) into numerical **one-hot encoded values**. (4 points)
+d) **Feature Engineering (Mutate):** Create one more feature and add this column to the dataset (e.g., calculate the current age of the car by subtracting “Year” value from the current year). (4 points)
+e) **Data Manipulation Operations:** Perform `select`, `filter`, `rename`, `mutate`, `arrange` and `summarize` with `group by` operations (or their equivalent operations in Python) on this dataset. (4 points)
 
-### Key Tasks Completed
-
-1.  **Missing Value Treatment:** Identified and treated missing values across all columns. **(Requirement 1a)**
-    * *Justification for the chosen imputation/dropping method is documented within the notebook.*
-2.  **Unit Removal:** Cleaned numerical features by removing non-numeric units (e.g., 'kmpl', 'CC', 'bhp', 'lakh') to prepare them for modeling. **(Requirement 1b)**
-3.  **Categorical Encoding:** Converted the categorical features **'Fuel\_Type'** and **'Transmission'** into numerical format using **One-Hot Encoding**. **(Requirement 1c)**
-4.  **Feature Engineering:** Created a new feature, **`Car_Age`**, by calculating the difference between the current year and the car's **'Year'** of manufacture. **(Requirement 1d)**
-5.  **Data Manipulation Operations:** Demonstrated proficiency in: **(Requirement 1e)**
-    * `select` / Column selection
-    * `filter` / Row filtering
-    * `rename` / Column renaming
-    * `mutate` / Feature creation
-    * `arrange` / Sorting
-    * `summarize` with `group_by` / Aggregation by category
+---
 
 ## 📊 Q2: Diabetes Dataset Statistical Analysis
 
-The notebook in `Q2_Diabetes_Stats/` focuses on statistical sampling and comparison techniques using the `diabetes.csv` dataset, which contains 8 attributes and a binary 'Outcome' variable.
+**Data Link:** `https://app.box.com/s/7qv44umhw0vnzgmoe9krfkfkv5kf2atv`
 
-### Key Tasks Completed
+The file `diabetes.csv` contains data of 768 patients. We consider this data as the **population** for this assignment.
 
-1.  **Random Sampling and Comparison (Glucose):** **(Requirement 2a)**
-    * Set a random seed for reproducibility.
-    * Drew a random sample of **25 observations**.
-    * Calculated the **mean** and **highest** Glucose values for the sample.
-    * Compared these sample statistics against the corresponding **population** statistics.
-    * *Comparison results are visualized using charts.*
-2.  **Percentile Comparison (BMI):** **(Requirement 2b)**
-    * Calculated the **98th percentile** of BMI for both the sample and the population.
-    * *Comparison results are visualized using charts.*
-3.  **Bootstrapping Analysis (BloodPressure):** **(Requirement 2c)**
-    * Generated **500 bootstrap samples** (with replacement) of **150 observations** each from the population.
-    * Calculated the **average mean, standard deviation, and percentile** of BloodPressure from the bootstrap distribution.
-    * Compared these bootstrap statistics against the corresponding **population** statistics for BloodPressure.
-    * *Comparison results are visualized using charts, and a detailed finding report is included in the notebook.*
+### Variables
 
-## 💻 Technical Stack
+* **Attributes:** Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction, and Age.
+* **Response Variable (Outcome):** Binary value (1 indicating diabetes, 0 meaning no diabetes).
 
-* **Programming Language:** Python (or R)
-* **Libraries:**
-    * Pandas (Data Manipulation)
-    * NumPy (Numerical Operations)
-    * Matplotlib / Seaborn (Data Visualization)
-    * Scikit-learn (Optional, for encoding)
+### Tasks
 
-## 📌 How to Run the Notebooks
+a) **Sampling and Comparison (Glucose):** Set a seed (for reproducibility) and take a **random sample of 25 observations**. Find the **mean Glucose** and **highest Glucose** values of this sample and compare these statistics with the population statistics of the same variable. You should use **charts** for this comparison. (5 points)
+b) **Percentile Comparison (BMI):** Find the **98th percentile of BMI** of your sample and the population and compare the results using **charts**. (5 points)
+c) **Bootstrapping (BloodPressure):** Using **bootstrap (replace=True)**, create **500 samples (of 150 observations each)** from the population and find the **average mean, standard deviation, and percentile** for BloodPressure. Compare this with these statistics from the population for the same variable. Again, you should create **charts** for this comparison. **Report on your findings.** (10 points)
 
-1.  **Clone the Repository:**
-    ```bash
-    git clone [YOUR_GITHUB_REPO_LINK]
-    ```
-2.  **Download Data:** Ensure the data files (linked in the assignment prompt) are downloaded and placed in the appropriate `data/` folder, or modify the file paths in the notebooks.
-3.  **Install Dependencies:** Install the required Python/R libraries (e.g., `pip install pandas numpy matplotlib seaborn` for Python).
-4.  **Run:** Open and run the notebooks (`Q1_Used_Cars_Analysis.ipynb` and `Q2_Diabetes_Stats.ipynb`) using Jupyter Notebook or VS Code.
+---
 
-## 🔗 Data Sources
+## ✅ Submission Details
 
-* **Q1 Data (Used Cars):** `https://app.box.com/s/jm6pw202asu4xd3uypwtry2rqk691y1i`
-* **Q2 Data (Diabetes):** `https://app.box.com/s/7qv44umhw0vnzgmoe9krfkfkv5kf2atv`
+* Create a **public GitHub repo** and upload the folders for the assignment on the GitHub.
+* Submit the link to Canvas.
+* The work needs to be organized as **folders and subfolders**.
+* Only **notebooks** are acceptable source files (e.g., Jupyter Notebooks or R Markdown/Notebooks).
